@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.ActivityDao">
+
+    <resultMap type="com.example.demo.entity.Activity" id="ActivityMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="activityPosters" column="activity_posters" jdbcType="VARCHAR"/>
+        <result property="activityTitle" column="activity_title" jdbcType="VARCHAR"/>
+        <result property="activityNumber" column="activity_number" jdbcType="VARCHAR"/>
+        <result property="activityTypeId" column="activity_type_id" jdbcType="INTEGER"/>
+        <result property="keywords" column="keywords" jdbcType="VARCHAR"/>
+        <result property="releaseTime" column="release_time" jdbcType="TIMESTAMP"/>
+        <result property="checkStatus" column="check_status" jdbcType="INTEGER"/>
+        <result property="checkTime" column="check_time" jdbcType="TIMESTAMP"/>
+        <result property="checkPersonContact" column="check_person_contact" jdbcType="VARCHAR"/>
+        <result property="checkRemark" column="check_remark" jdbcType="VARCHAR"/>
+        <result property="registrationStartTime" column="registration_start_time" jdbcType="TIMESTAMP"/>
+        <result property="activityStartTime" column="activity_start_time" jdbcType="TIMESTAMP"/>
+        <result property="addr" column="addr" jdbcType="VARCHAR"/>
+        <result property="personLimit" column="person_limit" jdbcType="INTEGER"/>
+        <result property="registrationFee" column="registration_fee" jdbcType="NUMERIC"/>
+        <result property="wxCustomerCode" column="wx_customer_code" jdbcType="VARCHAR"/>
+        <result property="paymentMethod" column="payment_method" jdbcType="VARCHAR"/>
+        <result property="registrationEndTime" column="registration_end_time" jdbcType="TIMESTAMP"/>
+        <result property="activityEndTime" column="activity_end_time" jdbcType="TIMESTAMP"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="checkNeed" column="check_need" jdbcType="INTEGER"/>
+        <result property="enterCompanyId" column="enter_company_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ActivityMap">
+        select
+          id, activity_posters, activity_title, activity_number, activity_type_id, keywords, release_time, check_status, check_time, check_person_contact, check_remark, registration_start_time, activity_start_time, addr, person_limit, registration_fee, wx_customer_code, payment_method, registration_end_time, activity_end_time, province, city, check_need, enter_company_id
+        from test.activity
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ActivityMap">
+        select
+          id, activity_posters, activity_title, activity_number, activity_type_id, keywords, release_time, check_status, check_time, check_person_contact, check_remark, registration_start_time, activity_start_time, addr, person_limit, registration_fee, wx_customer_code, payment_method, registration_end_time, activity_end_time, province, city, check_need, enter_company_id
+        from test.activity
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="ActivityMap">
+        select
+        id, activity_posters, activity_title, activity_number, activity_type_id, keywords, release_time, check_status,
+        check_time, check_person_contact, check_remark, registration_start_time, activity_start_time, addr,
+        person_limit, registration_fee, wx_customer_code, payment_method, registration_end_time, activity_end_time,
+        province, city, check_need, enter_company_id
+        from test.activity
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="activityPosters != null and activityPosters != ''">
+                and activity_posters = #{activityPosters}
+            </if>
+            <if test="activityTitle != null and activityTitle != ''">
+                and activity_title = #{activityTitle}
+            </if>
+            <if test="activityNumber != null and activityNumber != ''">
+                and activity_number = #{activityNumber}
+            </if>
+            <if test="activityTypeId != null">
+                and activity_type_id = #{activityTypeId}
+            </if>
+            <if test="keywords != null and keywords != ''">
+                and keywords = #{keywords}
+            </if>
+            <if test="releaseTime != null">
+                and release_time = #{releaseTime}
+            </if>
+            <if test="checkStatus != null">
+                and check_status = #{checkStatus}
+            </if>
+            <if test="checkTime != null">
+                and check_time = #{checkTime}
+            </if>
+            <if test="checkPersonContact != null and checkPersonContact != ''">
+                and check_person_contact = #{checkPersonContact}
+            </if>
+            <if test="checkRemark != null and checkRemark != ''">
+                and check_remark = #{checkRemark}
+            </if>
+            <if test="registrationStartTime != null">
+                and registration_start_time = #{registrationStartTime}
+            </if>
+            <if test="activityStartTime != null">
+                and activity_start_time = #{activityStartTime}
+            </if>
+            <if test="addr != null and addr != ''">
+                and addr = #{addr}
+            </if>
+            <if test="personLimit != null">
+                and person_limit = #{personLimit}
+            </if>
+            <if test="registrationFee != null">
+                and registration_fee = #{registrationFee}
+            </if>
+            <if test="wxCustomerCode != null and wxCustomerCode != ''">
+                and wx_customer_code = #{wxCustomerCode}
+            </if>
+            <if test="paymentMethod != null and paymentMethod != ''">
+                and payment_method = #{paymentMethod}
+            </if>
+            <if test="registrationEndTime != null">
+                and registration_end_time = #{registrationEndTime}
+            </if>
+            <if test="activityEndTime != null">
+                and activity_end_time = #{activityEndTime}
+            </if>
+            <if test="province != null and province != ''">
+                and province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+            <if test="checkNeed != null">
+                and check_need = #{checkNeed}
+            </if>
+            <if test="enterCompanyId != null">
+                and enter_company_id = #{enterCompanyId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into test.activity(activity_posters, activity_title, activity_number, activity_type_id, keywords, release_time, check_status, check_time, check_person_contact, check_remark, registration_start_time, activity_start_time, addr, person_limit, registration_fee, wx_customer_code, payment_method, registration_end_time, activity_end_time, province, city, check_need, enter_company_id)
+        values (#{activityPosters}, #{activityTitle}, #{activityNumber}, #{activityTypeId}, #{keywords}, #{releaseTime}, #{checkStatus}, #{checkTime}, #{checkPersonContact}, #{checkRemark}, #{registrationStartTime}, #{activityStartTime}, #{addr}, #{personLimit}, #{registrationFee}, #{wxCustomerCode}, #{paymentMethod}, #{registrationEndTime}, #{activityEndTime}, #{province}, #{city}, #{checkNeed}, #{enterCompanyId})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.activity(activity_posters, activity_title, activity_number, activity_type_id, keywords,
+        release_time, check_status, check_time, check_person_contact, check_remark, registration_start_time,
+        activity_start_time, addr, person_limit, registration_fee, wx_customer_code, payment_method,
+        registration_end_time, activity_end_time, province, city, check_need, enter_company_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.activityPosters}, #{entity.activityTitle}, #{entity.activityNumber}, #{entity.activityTypeId},
+            #{entity.keywords}, #{entity.releaseTime}, #{entity.checkStatus}, #{entity.checkTime},
+            #{entity.checkPersonContact}, #{entity.checkRemark}, #{entity.registrationStartTime},
+            #{entity.activityStartTime}, #{entity.addr}, #{entity.personLimit}, #{entity.registrationFee},
+            #{entity.wxCustomerCode}, #{entity.paymentMethod}, #{entity.registrationEndTime}, #{entity.activityEndTime},
+            #{entity.province}, #{entity.city}, #{entity.checkNeed}, #{entity.enterCompanyId})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.activity(activity_posters, activity_title, activity_number, activity_type_id, keywords,
+        release_time, check_status, check_time, check_person_contact, check_remark, registration_start_time,
+        activity_start_time, addr, person_limit, registration_fee, wx_customer_code, payment_method,
+        registration_end_time, activity_end_time, province, city, check_need, enter_company_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.activityPosters}, #{entity.activityTitle}, #{entity.activityNumber}, #{entity.activityTypeId},
+            #{entity.keywords}, #{entity.releaseTime}, #{entity.checkStatus}, #{entity.checkTime},
+            #{entity.checkPersonContact}, #{entity.checkRemark}, #{entity.registrationStartTime},
+            #{entity.activityStartTime}, #{entity.addr}, #{entity.personLimit}, #{entity.registrationFee},
+            #{entity.wxCustomerCode}, #{entity.paymentMethod}, #{entity.registrationEndTime}, #{entity.activityEndTime},
+            #{entity.province}, #{entity.city}, #{entity.checkNeed}, #{entity.enterCompanyId})
+        </foreach>
+        on duplicate key update
+        activity_posters = values(activity_posters) , activity_title = values(activity_title) , activity_number =
+        values(activity_number) , activity_type_id = values(activity_type_id) , keywords = values(keywords) ,
+        release_time = values(release_time) , check_status = values(check_status) , check_time = values(check_time) ,
+        check_person_contact = values(check_person_contact) , check_remark = values(check_remark) ,
+        registration_start_time = values(registration_start_time) , activity_start_time = values(activity_start_time) ,
+        addr = values(addr) , person_limit = values(person_limit) , registration_fee = values(registration_fee) ,
+        wx_customer_code = values(wx_customer_code) , payment_method = values(payment_method) , registration_end_time =
+        values(registration_end_time) , activity_end_time = values(activity_end_time) , province = values(province) ,
+        city = values(city) , check_need = values(check_need) , enter_company_id = values(enter_company_id)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update test.activity
+        <set>
+            <if test="activityPosters != null and activityPosters != ''">
+                activity_posters = #{activityPosters},
+            </if>
+            <if test="activityTitle != null and activityTitle != ''">
+                activity_title = #{activityTitle},
+            </if>
+            <if test="activityNumber != null and activityNumber != ''">
+                activity_number = #{activityNumber},
+            </if>
+            <if test="activityTypeId != null">
+                activity_type_id = #{activityTypeId},
+            </if>
+            <if test="keywords != null and keywords != ''">
+                keywords = #{keywords},
+            </if>
+            <if test="releaseTime != null">
+                release_time = #{releaseTime},
+            </if>
+            <if test="checkStatus != null">
+                check_status = #{checkStatus},
+            </if>
+            <if test="checkTime != null">
+                check_time = #{checkTime},
+            </if>
+            <if test="checkPersonContact != null and checkPersonContact != ''">
+                check_person_contact = #{checkPersonContact},
+            </if>
+            <if test="checkRemark != null and checkRemark != ''">
+                check_remark = #{checkRemark},
+            </if>
+            <if test="registrationStartTime != null">
+                registration_start_time = #{registrationStartTime},
+            </if>
+            <if test="activityStartTime != null">
+                activity_start_time = #{activityStartTime},
+            </if>
+            <if test="addr != null and addr != ''">
+                addr = #{addr},
+            </if>
+            <if test="personLimit != null">
+                person_limit = #{personLimit},
+            </if>
+            <if test="registrationFee != null">
+                registration_fee = #{registrationFee},
+            </if>
+            <if test="wxCustomerCode != null and wxCustomerCode != ''">
+                wx_customer_code = #{wxCustomerCode},
+            </if>
+            <if test="paymentMethod != null and paymentMethod != ''">
+                payment_method = #{paymentMethod},
+            </if>
+            <if test="registrationEndTime != null">
+                registration_end_time = #{registrationEndTime},
+            </if>
+            <if test="activityEndTime != null">
+                activity_end_time = #{activityEndTime},
+            </if>
+            <if test="province != null and province != ''">
+                province = #{province},
+            </if>
+            <if test="city != null and city != ''">
+                city = #{city},
+            </if>
+            <if test="checkNeed != null">
+                check_need = #{checkNeed},
+            </if>
+            <if test="enterCompanyId != null">
+                enter_company_id = #{enterCompanyId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from test.activity where id = #{id}
+    </delete>
+
+    <select id="searchActivity" resultMap="ActivityMap">
+        select *
+        from test.activity
+        where keywords like #{keywords}
+    </select>
+
+    <select id="queryActivityDetail" resultType="com.example.demo.bean.ActivityDetailInfo">
+        select  activity_title as activityTitle, activity_start_time as statTime
+                ,activity_end_time as endTime, addr, person_limit as personLimit
+                ,registration_fee as orderFee
+        from test.activity
+        where id = #{actId}
+    </select>
+
+    <select id="getActivityList" resultMap="ActivityMap">
+        select *
+        from test.activity limit #{start},#{pageSize}
+    </select>
+
+    <select id="getActivityNum" resultType="java.lang.Integer">
+        select count(1)
+        from test.activity
+    </select>
+
+</mapper>
+

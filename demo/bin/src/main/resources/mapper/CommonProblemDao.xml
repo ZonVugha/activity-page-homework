@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.CommonProblemDao">
+
+    <resultMap type="com.example.demo.entity.CommonProblem" id="CommonProblemMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="problem" column="problem" jdbcType="VARCHAR"/>
+        <result property="answer" column="answer" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CommonProblemMap">
+        select
+          id, problem, answer
+        from test.common_problem
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CommonProblemMap">
+        select
+          id, problem, answer
+        from test.common_problem
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="CommonProblemMap">
+        select
+        id, problem, answer
+        from test.common_problem
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="problem != null and problem != ''">
+                and problem = #{problem}
+            </if>
+            <if test="answer != null and answer != ''">
+                and answer = #{answer}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into test.common_problem(problem, answer)
+        values (#{problem}, #{answer})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.common_problem(problem, answer)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.problem}, #{entity.answer})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.common_problem(problem, answer)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.problem}, #{entity.answer})
+        </foreach>
+        on duplicate key update
+        problem = values(problem) , answer = values(answer)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update test.common_problem
+        <set>
+            <if test="problem != null and problem != ''">
+                problem = #{problem},
+            </if>
+            <if test="answer != null and answer != ''">
+                answer = #{answer},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from test.common_problem where id = #{id}
+    </delete>
+
+    <select id="queryAllProblems" resultMap="CommonProblemMap">
+        select
+          id, problem, answer
+        from test.common_problem
+    </select>
+
+</mapper>
+

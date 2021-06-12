@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.AdvertisingDao">
+
+    <resultMap type="com.example.demo.entity.Advertising" id="AdvertisingMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="advertisingPhoto" column="advertising_photo" jdbcType="VARCHAR"/>
+        <result property="advertisingTitle" column="advertising_title" jdbcType="VARCHAR"/>
+        <result property="rank" column="rank" jdbcType="INTEGER"/>
+        <result property="link" column="link" jdbcType="VARCHAR"/>
+        <result property="activityNumber" column="activity_number" jdbcType="VARCHAR"/>
+        <result property="releasePersonId" column="release_person_id" jdbcType="INTEGER"/>
+        <result property="releasePersonName" column="release_person_name" jdbcType="VARCHAR"/>
+        <result property="releaseTime" column="release_time" jdbcType="TIMESTAMP"/>
+        <result property="delStatus" column="del_status" jdbcType="INTEGER"/>
+        <result property="graphicDetails" column="graphic_details" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="AdvertisingMap">
+        select
+          id, type, advertising_photo, advertising_title, rank, link, activity_number, release_person_id, release_person_name, release_time, del_status, graphic_details
+        from test.advertising
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="AdvertisingMap">
+        select
+          id, type, advertising_photo, advertising_title, rank, link, activity_number, release_person_id, release_person_name, release_time, del_status, graphic_details
+        from test.advertising
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="AdvertisingMap">
+        select
+        id, type, advertising_photo, advertising_title, rank, link, activity_number, release_person_id,
+        release_person_name, release_time, del_status, graphic_details
+        from test.advertising
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="advertisingPhoto != null and advertisingPhoto != ''">
+                and advertising_photo = #{advertisingPhoto}
+            </if>
+            <if test="advertisingTitle != null and advertisingTitle != ''">
+                and advertising_title = #{advertisingTitle}
+            </if>
+            <if test="rank != null">
+                and rank = #{rank}
+            </if>
+            <if test="link != null and link != ''">
+                and link = #{link}
+            </if>
+            <if test="activityNumber != null and activityNumber != ''">
+                and activity_number = #{activityNumber}
+            </if>
+            <if test="releasePersonId != null">
+                and release_person_id = #{releasePersonId}
+            </if>
+            <if test="releasePersonName != null and releasePersonName != ''">
+                and release_person_name = #{releasePersonName}
+            </if>
+            <if test="releaseTime != null">
+                and release_time = #{releaseTime}
+            </if>
+            <if test="delStatus != null">
+                and del_status = #{delStatus}
+            </if>
+            <if test="graphicDetails != null and graphicDetails != ''">
+                and graphic_details = #{graphicDetails}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into test.advertising(type, advertising_photo, advertising_title, rank, link, activity_number, release_person_id, release_person_name, release_time, del_status, graphic_details)
+        values (#{type}, #{advertisingPhoto}, #{advertisingTitle}, #{rank}, #{link}, #{activityNumber}, #{releasePersonId}, #{releasePersonName}, #{releaseTime}, #{delStatus}, #{graphicDetails})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.advertising(type, advertising_photo, advertising_title, rank, link, activity_number,
+        release_person_id, release_person_name, release_time, del_status, graphic_details)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.type}, #{entity.advertisingPhoto}, #{entity.advertisingTitle}, #{entity.rank}, #{entity.link},
+            #{entity.activityNumber}, #{entity.releasePersonId}, #{entity.releasePersonName}, #{entity.releaseTime},
+            #{entity.delStatus}, #{entity.graphicDetails})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.advertising(type, advertising_photo, advertising_title, rank, link, activity_number,
+        release_person_id, release_person_name, release_time, del_status, graphic_details)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.type}, #{entity.advertisingPhoto}, #{entity.advertisingTitle}, #{entity.rank}, #{entity.link},
+            #{entity.activityNumber}, #{entity.releasePersonId}, #{entity.releasePersonName}, #{entity.releaseTime},
+            #{entity.delStatus}, #{entity.graphicDetails})
+        </foreach>
+        on duplicate key update
+        type = values(type) , advertising_photo = values(advertising_photo) , advertising_title =
+        values(advertising_title) , rank = values(rank) , link = values(link) , activity_number =
+        values(activity_number) , release_person_id = values(release_person_id) , release_person_name =
+        values(release_person_name) , release_time = values(release_time) , del_status = values(del_status) ,
+        graphic_details = values(graphic_details)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update test.advertising
+        <set>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="advertisingPhoto != null and advertisingPhoto != ''">
+                advertising_photo = #{advertisingPhoto},
+            </if>
+            <if test="advertisingTitle != null and advertisingTitle != ''">
+                advertising_title = #{advertisingTitle},
+            </if>
+            <if test="rank != null">
+                rank = #{rank},
+            </if>
+            <if test="link != null and link != ''">
+                link = #{link},
+            </if>
+            <if test="activityNumber != null and activityNumber != ''">
+                activity_number = #{activityNumber},
+            </if>
+            <if test="releasePersonId != null">
+                release_person_id = #{releasePersonId},
+            </if>
+            <if test="releasePersonName != null and releasePersonName != ''">
+                release_person_name = #{releasePersonName},
+            </if>
+            <if test="releaseTime != null">
+                release_time = #{releaseTime},
+            </if>
+            <if test="delStatus != null">
+                del_status = #{delStatus},
+            </if>
+            <if test="graphicDetails != null and graphicDetails != ''">
+                graphic_details = #{graphicDetails},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from test.advertising where id = #{id}
+    </delete>
+
+    <select id="queryAdInfoByType" resultMap="AdvertisingMap">
+        select
+          *
+        from test.advertising
+        where type = #{type}
+    </select>
+
+</mapper>
+

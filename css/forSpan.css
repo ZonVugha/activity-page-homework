@@ -1,0 +1,9 @@
+.showBox .mask h4{
+    display: none;
+}
+.showBox div:hover .mask{
+    background-color: rgba(241, 238, 233, 0.5);
+}
+.showBox div:hover .mask h4{
+    display: block;
+}

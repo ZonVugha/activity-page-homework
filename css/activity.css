@@ -1,0 +1,22 @@
+main{
+    width: 80%;
+    min-height: 90vh;
+    background-color: rgb(209, 209, 209);
+    margin-top: 0px;
+    margin: 50px auto;
+}
+.content{
+    width: 80%;
+    margin: 5px auto;
+    border-radius: 10px;
+    background-color: rgb(229, 237, 241);
+    display: flex;
+}
+.content img{
+    width: 50%;
+    border-radius: 10px;
+}
+.content span{
+    display: block;
+    margin: auto;
+}
