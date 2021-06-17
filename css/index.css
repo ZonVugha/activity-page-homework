@@ -21,7 +21,6 @@ body {
     position: relative;
     top: 20vh;
     overflow: hidden;
-    background-color: aqua;
 }
 .carouselSon img{
         width: 35vw;
