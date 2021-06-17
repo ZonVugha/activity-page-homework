@@ -74,5 +74,10 @@ public class ActivityController {
 
         return num;
     }
-
+//    add
+    @CrossOrigin
+    @GetMapping("/activity/getAll")
+    public List<Activity> getAllActivity() {
+        return activityService.getAllActivity();
+    }
 }

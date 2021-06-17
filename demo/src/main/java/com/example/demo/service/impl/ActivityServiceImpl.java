@@ -82,7 +82,12 @@ public class ActivityServiceImpl implements ActivityService {
     public List<Activity> searchActivity(String keywords) {
         return activityDao.searchActivity(keywords);
     }
-
+//    add
+    @Override
+    public List<Activity> getAllActivity() {
+        return activityDao.getAllActivity();
+    }
+//    --
     @Override
     public ActivityDetailInfo queryActivityDetail(Integer actId) {
         return activityDao.queryActivityDetail(actId);

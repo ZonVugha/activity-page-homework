@@ -81,12 +81,15 @@ public interface ActivityDao {
     int deleteById(Integer id);
 
     List<Activity> searchActivity(String keywords);
-
+//add
+	List<Activity> getAllActivity();
+//--
     ActivityDetailInfo queryActivityDetail(Integer actId);
 
     List<Activity> getActivityList(Integer start, Integer pageSize);
 
     int getActivityNum();
+
 
 }
 

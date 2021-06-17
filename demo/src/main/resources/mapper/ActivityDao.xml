@@ -264,7 +264,12 @@
         from test.activity
         where keywords like #{keywords}
     </select>
-
+	
+	<!--add-->
+	<select id="getAllActivity" resultMap="ActivityMap">
+		select *
+        from test.activity
+	</select>
     <select id="queryActivityDetail" resultType="com.example.demo.bean.ActivityDetailInfo">
         select  activity_title as activityTitle, activity_start_time as statTime
                 ,activity_end_time as endTime, addr, person_limit as personLimit

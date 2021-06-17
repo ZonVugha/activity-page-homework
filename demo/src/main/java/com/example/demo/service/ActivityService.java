@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.bean.ActivityDetailInfo;
 import com.example.demo.entity.Activity;
+import com.example.demo.entity.CommonProblem;
 
 import java.util.List;
 
@@ -55,7 +56,9 @@ public interface ActivityService {
     boolean deleteById(Integer id);
 
     List<Activity> searchActivity(String keywords);
-
+//add
+    List<Activity> getAllActivity();
+//--
     ActivityDetailInfo queryActivityDetail(Integer actId);
 
     List<Activity> getActivityList(Integer start, Integer pageSize);
