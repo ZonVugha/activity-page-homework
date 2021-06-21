@@ -298,7 +298,7 @@ CREATE TABLE `advertising` (
 
 LOCK TABLES `advertising` WRITE;
 /*!40000 ALTER TABLE `advertising` DISABLE KEYS */;
-INSERT INTO `advertising` VALUES (12,0,'https://img12.360buyimg.com/babel/s590x470_jfs/t1/194361/20/6837/164539/60bdb694E4f8a181e/cb7e837158010659.jpg.webp','搞定大脑',1,NULL,NULL,1064,'南京技术','2021-01-03 18:56:54',NULL,'<p>啊实打实多</p>'),(13,0,'https://imgcps.jd.com/img-cubic/creative_server_cia_jdcloud/v2/2000366/1709997/FocusFullshop/CkNqZnMvdDEvMTU2NzQ5LzI0LzE4MDA1LzcyNjM5LzYwNWM5YWRhRWU5MGYxZWIxLzk5ZDZlYjI4M2MxNTgwOTcuanBnEgo5OTktdHlfMF8xMAE47ot6/cr/s/q.jpg','活动执行攻略',2,NULL,NULL,1064,'南京技术','2021-01-03 18:57:36',NULL,NULL),(14,0,'https://imgcps.jd.com/img-cubic/creative_server_cia_jdcloud/v2/2000366/100004842640/FocusFullshop/CkNqZnMvdDEvMTI4Nzc4LzI2LzE0NTk0Lzc3NDc1LzVmODY5MDFlRTBlNmU5NGIzLzU3NmViMzk5MTNjZDcyZDQuanBnEgo5OTktdHlfMF8xMAE47ot6/cr/s/q.jpg','自信表达',3,NULL,NULL,1064,'南京技术','2021-01-03 18:58:12',NULL,NULL),(15,1,'https://imgcps.jd.com/ling4/4918116/576O5aaG54Ot6ZSA5aW96LSn/6YOo5YiG5Y2V5ZOB5LmwMei1oDE/p-5bd8253082acdd181d02f9e3/50e92dc6/cr/s/q.jpg','测试广告图',1,NULL,NULL,100001,'活动管理员','2021-01-21 10:11:37',NULL,'<p>差的是大多数都</p>');
+INSERT INTO `advertising` VALUES (12,0,'https://cdn.microsoftstore.com.cn/media/homepage/210621_homepagebanner_PC_2.jpg','搞定大脑',1,NULL,NULL,1064,'南京技术','2021-01-03 18:56:54',NULL,'<p>啊实打实多</p>'),(13,0,'https://cdn.microsoftstore.com.cn/media/category/commercial/0413_commercialbanner_PC_1.jpg','活动执行攻略',2,NULL,NULL,1064,'南京技术','2021-01-03 18:57:36',NULL,NULL),(14,0,'https://cdn.microsoftstore.com.cn/media/WL-Banner/microsoft-365-category/banner-pc-1.jpg','自信表达',3,NULL,NULL,1064,'南京技术','2021-01-03 18:58:12',NULL,NULL),(15,1,'https://imgcps.jd.com/ling4/4918116/576O5aaG54Ot6ZSA5aW96LSn/6YOo5YiG5Y2V5ZOB5LmwMei1oDE/p-5bd8253082acdd181d02f9e3/50e92dc6/cr/s/q.jpg','测试广告图',1,NULL,NULL,100001,'活动管理员','2021-01-21 10:11:37',NULL,'<p>差的是大多数都</p>');
 /*!40000 ALTER TABLE `advertising` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -961,4 +961,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-17 19:49:15
+-- Dump completed on 2021-06-21 22:54:36

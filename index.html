@@ -14,10 +14,15 @@
     <header>
         <nav>
             <div class="topNav">
-                <div class="link">
-                    <a class="active" href="index.html">Home</a>
-                    <a href="help.html">Help</a>
-                    <a href="about.html">About</a>
+                <div class="btn" id="btnDiv">
+                    <span>LOGO</span>
+                    <button><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+                </div>
+                <div class="link" id="link">
+                    <a class="active" href="index.html">首页</a>
+                    <a href="activityLine.html">活动</a>
+                    <a href="help.html">帮助</a>
+                    <a href="about.html">关于</a>
                 </div>
                 <div class="search-container">
                     <form action="activity.html" method="GET">
@@ -30,16 +35,34 @@
     </header>
     <div class="headerBottom">
         <div id="carousel" class="carousel">
-            <div id="carouselSon" class="carouselSon">
-    
-            </div>
+            <div id="carouselSon" class="carouselSon"></div>
             <div id="carouselBtn" class="carouselBtn">
                 <span class="on"></span>
                 <span></span>
                 <span></span>
             </div>
+            <div class="buy" id="buy">
+                <div class="buyCard buyShow">
+                    <h2>全新 Surface Laptop 4</h2>
+                    <p>处理器全面升级，多种靓丽颜色可选，独具匠心，彰显自我，限时享 Microsoft Complete 全方位服务计划4折优惠*</p>
+                    <a href="https://www.microsoftstore.com.cn/surface/surface-laptop-4" target="_blank">立即购买</a>
+                </div>
+                <div class="buyCard">
+                    <h2>Surface Laptop 4 商用版</h2>
+                    <p>处理器全面升级，时尚，性能，面面俱到</p>
+                    <a href="https://www.microsoftstore.com.cn/surface/surface-laptop-4-for-business" target="_blank">立即购买</a>
+                </div>
+                <div class="buyCard">
+                    <h2>Microsoft 365 高能登场</h2>
+                    <p>此刻，为热爱全情投入，全新工具成就工作生活家</p>
+                    <a href="https://www.microsoftstore.com.cn/microsoft365/microsoft-365-family" target="_blank">立即购买</a>
+                </div>
+            </div>
+
         </div>
     </div>
+
+
     <div class="explore" id="explore">
         <div class="channel">
             <a href="channel.html" title="1">山峰</a>
@@ -57,16 +80,22 @@
             <a href="channel.html" title="5">天空</a>
         </div>
     </div>
-
     <main>
         <div class="box">
+            <h2>活动推荐</h2>
+
             <div class="showBox" id="showBox">
 
             </div>
         </div>
     </main>
-
+    <footer>
+        <div class="bottomBox">
+            <p>Copyright © 2021-2021 Nobody, All rights reserved.</p>
+        </div>
+    </footer>
     <script src="js/index.js"></script>
+    <script src="js/header.js"></script>
     <link rel="stylesheet" href="css/forSpan.css">
 </body>
 </html>

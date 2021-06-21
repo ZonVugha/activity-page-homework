@@ -1,0 +1,29 @@
+.activityLine{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+  }
+  .activityLine div{
+    flex: 1 auto;
+    /* margin: 0px 20px; */
+  }
+  .activityLine div a{
+    display: flex;
+    background-color: rgb(227, 240, 236);
+    line-height: 50px;
+    color: black;
+    justify-content: center;
+  }
+  .activityLine div a:hover{
+    background-color: rgb(186, 228, 216);
+  }
+  .activityLine div a:active{
+    background-color: rgb(43, 236, 182);
+  }
+
+  main{
+      position: relative;
+      top: 10vh;
+  }

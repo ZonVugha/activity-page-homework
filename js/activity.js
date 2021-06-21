@@ -23,8 +23,9 @@ const content = document.querySelector('main');
 
 
 requestSea.onload = function() {
-    let data = requestSea.response;
-    for (let index = 0; index < data.length; index++){
+  let data = requestSea.response;
+  if (data != "") {
+      for (let index = 0; index < data.length; index++){
         const newDiv = document.createElement('div');
         const newImage = document.createElement('img');
         const span = document.createElement('span');
@@ -35,6 +36,11 @@ requestSea.onload = function() {
         newDiv.appendChild(newImage);
         newDiv.appendChild(span);
     }
+  } else {
+    const p = document.createElement('p');
+    p.innerHTML = `没有查询到与${keyword}相关的活动！`;
+    content.appendChild(p);
+  }
 
 }
 

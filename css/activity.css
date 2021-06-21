@@ -1,20 +1,30 @@
+body{
+    background: url("../img/bgBottom.jpg") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 main{
+    position: relative;
+    top: 10vh;
     width: 80%;
     min-height: 90vh;
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(209, 209, 209, 0.5);
     margin-top: 0px;
     margin: 50px auto;
 }
 .content{
     width: 80%;
-    margin: 5px auto;
+    margin: 10px auto;
     border-radius: 10px;
-    background-color: rgb(229, 237, 241);
+    background-color: rgb(229, 237, 241, 0.8);
     display: flex;
 }
 .content img{
-    width: 50%;
+    width: 30%;
     border-radius: 10px;
+}
+main p{
+    text-align: center;
 }
 .content span{
     display: block;
