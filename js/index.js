@@ -58,7 +58,6 @@ const a = explore.querySelectorAll('a');
 for (let index = 0; index < a.length; index++) {
     a[index].onclick = () => {
         let status = a[index].title;
-        console.log(status);
         sessionStorage.setItem('status', status);
     }
 }

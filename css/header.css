@@ -15,11 +15,14 @@ a{
 }
 .topNav {
     overflow: hidden;
-    background-color: rgb(201, 224, 215);
+    background-color: rgb(29, 29, 29);
     width: 100%;
   }
   .topNav .btn{
     display: none;
+  }
+  .topNav .btn span{
+    color: aliceblue;
   }
   .topNav .btn button{
     float: right;
@@ -27,7 +30,7 @@ a{
   .topNav .link a {
     float: left;
     display: block;
-    color: black;
+    color: aliceblue;
     text-align: center;
     padding: 14px 28px;
     font-size: 17px;
@@ -39,7 +42,7 @@ a{
   }
   
   .topNav .link a.active {
-    background-color: #2196F3;
+    background-color: #35383a;
     color: white;
   }
   
@@ -72,21 +75,22 @@ a{
     top: 50px;
     width: 100%;
     display: flex;
-    background-color:rgb(201, 224, 217);
+    background-color: rgb(29, 29, 29);
     z-index: 1;
   }
   .explore div{
     flex: 1 auto;
-    margin: 5px 20px;
+    margin: 10px 20px;
   }
   .explore div a{
     display: flex;
-    background-color: rgb(214, 240, 232);
+    background-color: rgb(225, 226, 226);
+    color: black;
     line-height: 50px;
     justify-content: center;
   }
   .explore div a:hover{
-    background-color: rgb(186, 228, 216);
+    background-color: rgb(182, 180, 180);
   }
   @media screen and (max-width: 600px) {
     header{
@@ -129,6 +133,126 @@ a{
     }
     
   }
-  .bottomBox p{
+
+footer{
+    width: 100%;
+    background-color: #333333;
+    
+}
+.left {
+    width: 66vw;
+    height: 205px;
+    margin: 0 auto;
+    position: relative;
+    /* float: left; */
+    /* left: 20%; */
+    top: 60px;
+  }
+  .left p{
+    color: gray;
+  }
+  .left a{
+    color: gray;
+  }
+
+  .download {
+    float: left;
+    width: 28vw;
+    padding-left: 8px;
+  }
+
+  .download h3 {
+    height: 50px;
+    /* background-color: #12b7f5; */
+    color: gray;
+    font-size: 16px;
+  }
+
+  ul{
+      list-style: none;
+  }
+  ul li a{
+      text-decoration: none;
+      color: gray;
+  }
+  .sidebar{
+      display: flex;
+      flex-direction: row;
+  }
+  .sidebar li{
+      width: 90vw;
+      text-align: center;
+  }
+  .sIcon{
+      float: left;
+      width: 90px;
+      height: 60px;
+      background: url("../img/footer.png") no-repeat;
+  }
+
+  .iconA{background-position: 9px 0px;}
+  .iconB{background-position: -105px 0px;}
+  .iconC{background-position: -215px 0px;}
+  .iconD{background-position: -320px 0px;}
+
+  a:hover{color: #12b7f5;}
+  .iconA:hover{background-position: 9px -93px;}
+  .iconB:hover{background-position: -105px -93px;}
+  .iconC:hover{background-position: -215px -93px;}
+  .iconD:hover{background-position: -320px -93px;}
+
+  .map {
+    float: left;
+  }
+
+  .map h3 {
+    height: 25px;
+    color: #666;
+    font-size: 14px;
+  }
+
+  .map li {
+    line-height: 1.5em;
+  }
+
+  .safe {
+    width: 12vw;
+  }
+
+  .help {
+    width: 10vw;
+  }
+
+  .Flink {
+    width: 8vw;
+  }
+
+  .copyright {
+    clear: both;
+    width: 100%;
+    height: 75px;
+    margin: auto;
+    border-top: 1px solid #666;
+    margin-top: 26px;
+    line-height: 16px;
     text-align: center;
+    color: #666;
+  }
+
+  @media screen and (max-width: 1300px) {
+    .left {
+      width: 66vw;
+      height: 205px;
+      margin: 0 auto;
+      position: relative;
+      top: 60px;
+    }
+    .sidebar li{
+      position: relative;
+      left: -100px;
+    }
+    .map{
+      display: none;
+    }
+  
   }

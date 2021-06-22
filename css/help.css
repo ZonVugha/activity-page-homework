@@ -1,8 +1,6 @@
-body{
-    font-size: 1.2em;
-}
 main{
     margin-top: 10vh;
+    font-size: 1.2em;
     width: 50%;
     min-height: 90vh;
     background-color: rgb(223, 219, 219);
