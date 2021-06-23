@@ -28,18 +28,28 @@ requestSea.onload = function() {
       for (let index = 0; index < data.length; index++){
         const newDiv = document.createElement('div');
         const newImage = document.createElement('img');
-        const span = document.createElement('span');
+        const newTextDiv = document.createElement('div');
+        const h4 = document.createElement('h4');
+        const spanPosition = document.createElement('span');
+        const spanTime = document.createElement('span');
         newDiv.className = "content";
+        newTextDiv.className = 'textBox'
         newImage.setAttribute('src', data[index].activityPosters);
-        span.innerHTML = data[index].activityTitle;
+        h4.innerHTML = data[index].activityTitle;
+        spanPosition.innerHTML = data[index].province;
+        spanTime.innerHTML = data[index].activityStartTime;
         content.appendChild(newDiv);
         newDiv.appendChild(newImage);
-        newDiv.appendChild(span);
+        newDiv.appendChild(newTextDiv);
+        newTextDiv.appendChild(h4);
+        newTextDiv.appendChild(spanPosition);
+        newTextDiv.appendChild(spanTime);
+
     }
   } else {
-    const p = document.createElement('p');
-    p.innerHTML = `没有查询到与${keyword}相关的活动！`;
-    content.appendChild(p);
+    const h1 = document.createElement('h1');
+    h1.innerHTML = `没有查询到与${keyword}相关的活动！`;
+    content.appendChild(h1);
   }
 
 }

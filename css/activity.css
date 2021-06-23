@@ -23,10 +23,26 @@ main{
     width: 30%;
     border-radius: 10px;
 }
-main p{
+main h1{
     text-align: center;
 }
-.content span{
-    display: block;
-    margin: auto;
+.textBox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);   
+}
+.textBox h4:first-child{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.textBox span:nth-child(0n+2){
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.textBox span:nth-child(0n+3){
+    grid-column-start: 2;
+    grid-column-end: 3;
 }

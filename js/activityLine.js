@@ -25,14 +25,20 @@ request.onload = function () {
         const newDiv2 = document.createElement('div');
         const newImage = document.createElement('img');
         const h4 = document.createElement('h4');
+        const spanPosition = document.createElement('span');
+        const spanTime = document.createElement('span');
         newDiv.className = "content";
-        newDiv2.className = "mask";
+        newDiv2.className = "mask textBox";
         newImage.setAttribute('src', data[index].activityPosters);
         h4.innerHTML = data[index].activityTitle;
+        spanPosition.innerHTML = data[index].addr;
+        spanTime.innerHTML = data[index].releaseTime;
         content.appendChild(newDiv);
         newDiv.appendChild(newImage);
         newDiv.appendChild(newDiv2);
         newDiv2.appendChild(h4);
+        newDiv2.appendChild(spanPosition);
+        newDiv2.appendChild(spanTime);
 
     }
 }
