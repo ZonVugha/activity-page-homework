@@ -65,4 +65,14 @@ main h1{
     .content span{
         font-size: 0.6em;
     }
+    main{
+        position: relative;
+        top: 2vh;
+        width: 80%;
+        min-height: 50vh;
+        background-color: rgb(209, 209, 209, 0.5);
+        margin-top: 0px;
+        margin: 50px auto;
+    }
+    
   }
