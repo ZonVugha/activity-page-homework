@@ -46,3 +46,17 @@ main{
     background-color: #f1f1f1;
   }
   
+  @media screen and (max-width: 1300px) {
+    .collapsible{
+      text-align: center;
+
+    }
+    .collapsible span:nth-child(0n+1){
+      display: inline-block;
+      width: 80%;
+  }
+    .collapsible span:nth-child(0n+2){
+      display: inline-block;
+      width: 70%;
+  }
+  }

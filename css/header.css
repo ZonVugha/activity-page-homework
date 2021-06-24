@@ -144,8 +144,6 @@ footer{
     height: 205px;
     margin: 0 auto;
     position: relative;
-    /* float: left; */
-    /* left: 20%; */
     top: 60px;
   }
   .left p{
@@ -163,7 +161,6 @@ footer{
 
   .download h3 {
     height: 50px;
-    /* background-color: #12b7f5; */
     color: gray;
     font-size: 16px;
   }

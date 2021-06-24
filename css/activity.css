@@ -20,7 +20,7 @@ main{
     display: flex;
 }
 .content img{
-    width: 30%;
+    width: 50%;
     border-radius: 10px;
 }
 main h1{
@@ -56,7 +56,7 @@ main h1{
     }
     
     .content img{
-        width: 30%;
+        width: 50%;
         object-fit: cover;
     }
     .content h4{
