@@ -27,19 +27,22 @@ requestSea.onload = function() {
   if (data != "") {
       for (let index = 0; index < data.length; index++){
         const newDiv = document.createElement('div');
+        const newDivImg = document.createElement('div');
         const newImage = document.createElement('img');
         const newTextDiv = document.createElement('div');
         const h4 = document.createElement('h4');
         const spanPosition = document.createElement('span');
         const spanTime = document.createElement('span');
         newDiv.className = "content";
+        newDivImg.className = "divImg";
         newTextDiv.className = 'textBox'
         newImage.setAttribute('src', data[index].activityPosters);
         h4.innerHTML = data[index].activityTitle;
         spanPosition.innerHTML = data[index].province;
         spanTime.innerHTML = data[index].activityStartTime;
         content.appendChild(newDiv);
-        newDiv.appendChild(newImage);
+        newDivImg.appendChild(newImage);
+        newDiv.appendChild(newDivImg);
         newDiv.appendChild(newTextDiv);
         newTextDiv.appendChild(h4);
         newTextDiv.appendChild(spanPosition);

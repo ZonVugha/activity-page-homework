@@ -22,19 +22,22 @@ request.onload = function () {
     let data = request.response;
     for (let index = 0; index < data.length; index++) {
         const newDiv = document.createElement('div');
+        const newDivImg = document.createElement('div');
         const newDiv2 = document.createElement('div');
         const newImage = document.createElement('img');
         const h4 = document.createElement('h4');
         const spanPosition = document.createElement('span');
         const spanTime = document.createElement('span');
         newDiv.className = "content";
+        newDivImg.className = "divImg";
         newDiv2.className = "mask textBox";
         newImage.setAttribute('src', data[index].activityPosters);
         h4.innerHTML = data[index].activityTitle;
         spanPosition.innerHTML = data[index].addr;
         spanTime.innerHTML = data[index].releaseTime;
         content.appendChild(newDiv);
-        newDiv.appendChild(newImage);
+        newDivImg.appendChild(newImage);
+        newDiv.appendChild(newDivImg);
         newDiv.appendChild(newDiv2);
         newDiv2.appendChild(h4);
         newDiv2.appendChild(spanPosition);
